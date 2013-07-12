@@ -1,21 +1,13 @@
 pytn
 ====
 
-a starter project demonstarting a minimal symposion instance
-
-
-Usage:
-
-    django-admin.py startproject --extension=py,json --template=https://github.com/pinax/pinax-project-symposion/zipball/master <project_name>
-
 Getting Started:
 
     pip install virtualenv
-    virtualenv mysiteenv
-    source mysiteenv/bin/activate
-    pip install Django==1.4.5
-    django-admin.py startproject --extension=py,json --template=https://github.com/pinax/pinax-project-symposion/zipball/master mysite
-    cd mysite
+    virtualenv --no-site-packages pytnenv
+    source pytnenv/bin/activate
+    git clone git@github.com:pytn/pytn.git pytn
+    cd pytn
     pip install -r requirements.txt
     python manage.py syncdb
     python manage.py loaddata fixtures/*

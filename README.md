@@ -1,5 +1,5 @@
-pinax-project-symposion
-=====================
+pytn
+====
 
 a starter project demonstarting a minimal symposion instance
 

@@ -12,7 +12,7 @@ django-debug-toolbar==0.9.4
 django-timezones==0.2
 pytz==2013b
 django-model-utils==1.1.0
-
+psycopg2==2.5.1
 django-taggit==0.9.3
 django-reversion==1.7
 django-markitup==1.0.0

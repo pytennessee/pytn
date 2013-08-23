@@ -74,7 +74,7 @@ MEDIA_URL = "/site_media/media/"
 # Absolute path to the directory that holds static files like app media.
 # Example: "/home/media/media.lawrence.com/apps/"
 #STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
-'staticfiles'
+STATIC_ROOT = 'staticfiles'
 
 # URL that handles the static files like app media.
 # Example: "http://media.lawrence.com"

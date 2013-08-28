@@ -8,11 +8,11 @@ import dj_database_url
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # tells Pinax to serve media through the staticfiles app.
-SERVE_MEDIA = True
+SERVE_MEDIA = DEBUG
 
 INTERNAL_IPS = [
     "127.0.0.1",

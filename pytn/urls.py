@@ -18,11 +18,11 @@ urlpatterns = patterns("",
         "template": "homepage.html",
     }, name="home"),
     url(r"^admin/", include(admin.site.urls)),
-    
+
     url(r"^account/signup/$", symposion.views.SignupView.as_view(), name="account_signup"),
     url(r"^account/login/$", symposion.views.LoginView.as_view(), name="account_login"),
     url(r"^account/", include("account.urls")),
-    
+
     url(r"^dashboard/", symposion.views.dashboard, name="dashboard"),
     url(r"^speaker/", include("symposion.speakers.urls")),
     url(r"^proposals/", include("symposion.proposals.urls")),
@@ -32,9 +32,9 @@ urlpatterns = patterns("",
     url(r"^reviews/", include("symposion.reviews.urls")),
     url(r"^schedule/", include("symposion.schedule.urls")),
     url(r"^markitup/", include("markitup.urls")),
-    
+
     url(r"^", include("symposion.cms.urls")),
 )
 
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

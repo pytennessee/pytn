@@ -3,6 +3,7 @@
 
 import os.path
 import posixpath
+import dj_database_url
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -34,12 +35,22 @@ DATABASES = {
     }
 }
 
+# Parse database configuration from $DATABASE_URL
+# import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+#
+# # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#
+# # Allow all host headers
+ALLOWED_HOSTS = ['*']
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = "US/Eastern"
+TIME_ZONE = "US/Central"
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -62,11 +73,12 @@ MEDIA_URL = "/site_media/media/"
 
 # Absolute path to the directory that holds static files like app media.
 # Example: "/home/media/media.lawrence.com/apps/"
-STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
+#STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
+STATIC_ROOT = 'staticfiles'
 
 # URL that handles the static files like app media.
 # Example: "http://media.lawrence.com"
-STATIC_URL = "/site_media/static/"
+STATIC_URL = "/static/"
 
 # Additional directories which hold static files
 STATICFILES_DIRS = [
@@ -132,11 +144,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
-    
+
     # theme
     "pinax_theme_bootstrap",
     "django_forms_bootstrap",
-    
+
     # external
     "debug_toolbar",
     "timezones",
@@ -147,7 +159,7 @@ INSTALLED_APPS = [
     "easy_thumbnails",
     "sitetree",
     "account",
-    
+
     # symposion
     "symposion",
     "symposion.sponsorship",
@@ -159,7 +171,7 @@ INSTALLED_APPS = [
     "symposion.teams",
     "symposion.reviews",
     "symposion.schedule",
-    
+
     # project
     "pytn.proposals",
 ]
@@ -185,7 +197,7 @@ ACCOUNT_USER_DISPLAY = lambda user: user.email
 AUTHENTICATION_BACKENDS = [
     # Permissions Backends
     "symposion.teams.backends.TeamPermissionsBackend",
-    
+
     # Auth backends
     "account.auth_backends.EmailAuthenticationBackend",
 ]

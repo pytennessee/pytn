@@ -224,6 +224,10 @@ PROPOSAL_FORMS = {
     "talk": "pytn.proposals.forms.TalkProposalForm",
 }
 
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY = 'key-7c3-my73xu8fvj-29r22039vv799a8-7'
+MAILGUN_SERVER_NAME = 'api.mailgun.org'
+
 # local_settings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.
 try:

@@ -79,6 +79,13 @@ STATIC_ROOT = 'staticfiles'
 # URL that handles the static files like app media.
 # Example: "http://media.lawrence.com"
 # STATIC_URL = "/static/"
+AWS_ACCESS_KEY_ID=os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY=os.environ['AWS_SECRET_ACCESS_KEY']
+
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = S3_URL
 
 # Additional directories which hold static files
 STATICFILES_DIRS = [
@@ -228,10 +235,6 @@ PROPOSAL_FORMS = {
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
 MAILGUN_ACCESS_KEY = 'key-7c3-my73xu8fvj-29r22039vv799a8-7'
 MAILGUN_SERVER_NAME = 'pytennessee.org'
-AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = S3_URL
 
 # local_settings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.

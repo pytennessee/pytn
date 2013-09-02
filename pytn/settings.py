@@ -8,7 +8,7 @@ import dj_database_url
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 # tells Pinax to serve media through the staticfiles app.
@@ -78,7 +78,14 @@ STATIC_ROOT = 'staticfiles'
 
 # URL that handles the static files like app media.
 # Example: "http://media.lawrence.com"
-STATIC_URL = "/static/"
+# STATIC_URL = "/static/"
+AWS_ACCESS_KEY_ID=os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY=os.environ['AWS_SECRET_ACCESS_KEY']
+
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = S3_URL
 
 # Additional directories which hold static files
 STATICFILES_DIRS = [
@@ -159,6 +166,7 @@ INSTALLED_APPS = [
     "easy_thumbnails",
     "sitetree",
     "account",
+    "storages",
 
     # symposion
     "symposion",
@@ -184,8 +192,8 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_USE_OPENID = False
-ACCOUNT_REQUIRED_EMAIL = False
-ACCOUNT_EMAIL_VERIFICATION = False
+ACCOUNT_REQUIRED_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = True
 ACCOUNT_EMAIL_AUTHENTICATION = False
 ACCOUNT_UNIQUE_EMAIL = EMAIL_CONFIRMATION_UNIQUE_EMAIL = False
 
@@ -223,6 +231,10 @@ PROPOSAL_FORMS = {
     "tutorial": "pytn.proposals.forms.TutorialProposalForm",
     "talk": "pytn.proposals.forms.TalkProposalForm",
 }
+
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY = 'key-7c3-my73xu8fvj-29r22039vv799a8-7'
+MAILGUN_SERVER_NAME = 'pytennessee.org'
 
 # local_settings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.

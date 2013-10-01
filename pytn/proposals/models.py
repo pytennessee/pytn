@@ -22,6 +22,9 @@ class Proposal(ProposalBase):
         help_text="By submitting your proposal, you agree to give permission to the conference organizers to record, edit, and release audio and/or video of your presentation. If you do not agree to this, please uncheck this box."
     )
     
+    def __unicode__(self):
+        return self.title
+
     class Meta:
         abstract = True
 

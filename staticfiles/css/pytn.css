@@ -102,7 +102,7 @@ hr {
 
 
 #hero {
-    background: url(../symposion/img/pytnheader.jpg);
+    background: #2b373e url(../symposion/img/pytnheader.jpg) top center;
     min-height: 500px;
     width: 100%;
     margin-bottom: 40px;

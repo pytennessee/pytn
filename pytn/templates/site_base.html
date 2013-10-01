@@ -9,6 +9,8 @@
 {% block viewport %}{% endblock %}
 
 {% block style_base %}
+    <link rel="shortcut icon" href="{% static 'symposion/img/favicon.ico' %}" type="image/x-icon" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link href="{% static "symposion/css/symposion.css" %}" rel="stylesheet">
     <link href="{% static "css/pytn.css" %}" rel="stylesheet">
     {% block extra_style %}{% endblock %}
@@ -26,9 +28,12 @@
     <a class="brand" href="{% url home %}">{{ SITE_NAME }}</a>
 {% endblock %}
 
-{% block navbar_class %}navbar-fixed-top{% endblock %}
+{% block navbar_class %}navbar-fixed-top hellobar{% endblock %}
 
 {% block nav %}
+    <div id="hello">
+        <strong>Call for Proposals</strong> PyTennessee is now accepting talk proposals. We encourage everyone to submit talks. <a href="#">Learn more</a>
+    </div>
     {% sitetree_menu from "main" include "trunk" template "sitetree/menu_bootstrap.html" %}
 {% endblock %}
 
@@ -63,10 +68,10 @@
                 </div>
             </footer>
         {% endblock %}
-    </div>
-    <div class="row">
-        <div class="span12">
-          "Python" and the Python logos are trademarks or registered trademarks of the Python Software Foundation, used by PyTennessee  with permission from the Foundation
+        <div class="row">
+            <div class="span12">
+              <small>"Python" and the Python logos are trademarks or registered trademarks of the Python Software Foundation, used by PyTennessee  with permission from the Foundation</small>
+            </div>
         </div>
     </div>
 {% endblock %}

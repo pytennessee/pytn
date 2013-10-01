@@ -1,3 +1,191 @@
 body{
-    padding-top: 60px;
+    background: #f5f6f6;
+    padding-top: 180px;
+    color: #242f34;
+}
+body.home {
+    padding-top: 121px;
+}
+
+a {
+    color: #6396f3;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+}
+
+h4, h5, h6 {
+    font-weight: 700;
+}
+
+
+h1, h3, h5 {
+    color: #242f34;
+}
+
+h2, h4, h6 {
+    color: #95a7af;
+}
+
+
+hr {
+    border-top: 2px solid #95a7af;
+    border-bottom: 1px solid #fff;
+}
+.navbar .brand {
+    text-indent: -9999px;
+    width: 230px;
+    height: 47px;
+    background: url(../symposion/img/pytnlogo.png) transparent no-repeat;
+}
+
+.navbar .brand:hover {
+    opacity: .8;
+}
+.navbar.navbar-fixed-top {
+    border-bottom: 1px solid #C5C5C5;
+}
+.navbar-inner{
+    min-height:120px;
+    padding-left:20px;
+    padding-right:20px;
+    background-color:#f5f6f6;
+    background-image: none;
+    border:none;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.065);
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.065);
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.065);
+    *zoom:1;
+}
+
+
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    position: relative;
+    top: 40px;
+    left: 0;
+}
+
+
+.navbar .nav li a.login-btn {
+    color: #00f03e;
+    background: #009025;
+    text-shadow: none;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+
+.navbar .nav li a.login-btn:hover {
+    color: #05FF45;
+    background: #039929;
+}
+
+.navbar .nav>li>a {
+    color: #94a9ae;
+    text-shadow: none;
+}
+.navbar .nav>li>a:focus, .navbar .nav>li>a:hover{
+    color: #7792f5;
+}
+
+.navbar .nav li.dropdown.open>.dropdown-toggle, .navbar .nav li.dropdown.active>.dropdown-toggle, .navbar .nav li.dropdown.open.active>.dropdown-toggle {
+    color: #7792f5;
+    background: #242f34;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+
+
+#hero {
+    background: url(../symposion/img/pytnheader.jpg);
+    min-height: 500px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#sponsorCarousel {
+    margin-bottom: 40px;
+}
+
+
+.sponsor-btn {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    background: #c4dcd6;
+    text-shadow: none;
+    color: #5c7378;
+    border: none;
+}
+
+.sponsor-btn:hover {
+    background: #009025;
+    color: #00f03e;
+}
+.carousel {
+    min-height: 250px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+.carousel-indicators {
+    right: 50%;
+    top: auto;
+    bottom: 20px;
+    margin-right: -19px;
+}
+/* Changes the colour of the indicators */
+.carousel-indicators li {
+    background: #c0c0c0;
+}
+.carousel-indicators .active {
+background: #333333;
+}
+
+.carousel .thumbail {
+    margin: 10px 0;
+}
+
+.carousel h3 {
+    color: #7792f5;
+}
+
+.carousel-inner .item .span3{
+    margin-top: 20px;
+}
+.carousel-inner .item .thumbnail {
+    background: #fff;
+}
+
+.carousel-inner .item .thumbnail:hover{
+    border-color: #7792f5;
+}
+
+.hellobar.navbar-fixed-top {
+    top: 30px;
+}
+
+#hello {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #293031;
+    color: #c4dcd6;
+    height: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Raleway';
+    padding: 5px;
+    font-weight: 400;
+}
+
+
+#hello a {
+    color: #009025;
 }

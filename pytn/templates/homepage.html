@@ -2,12 +2,84 @@
 
 {% load i18n %}
 {% load boxes_tags %}
+{% load thumbnail %}
+
+{% load sponsorship_tags %}
+{% load sponsors_utils %}
 
 {% block head_title %}{% trans "Welcome" %}{% endblock %}
 
 {% block body_class %}home{% endblock %}
 
+{% block body_base %}
+   <div id="hero">
+
+   </div>
+
+{% sponsor_levels as levels %}
+
+ <div class="container">
+    <div class="row">
+        <div class="span12">
+            <div id="sponsorCarousel" class="carousel slide">
+                <div>
+                    <h3 class="pull-left">Our Sponsors</h3>
+                     <a class="btn sponsor-btn pull-right" class="pull-right" href="/sponsors/apply/">Sponsorships Available. <strong>Become a sponsor today!</strong></a>
+                    </div>
+                    <ol class="carousel-indicators">
+                            {% for level in levels|has_sponsors %}
+                                <li data-target="#sponsorCarousel" data-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% endif %}"></li>
+                            {% endfor %}
+                    </ol>
+
+                    <div class="carousel-inner">
+                        {% for level in levels|has_sponsors%}
+                            <div class="item">
+                            <h5>{{level.name}}</h5>
+                                <div class="row">
+                                    {% for sponsor in level.sponsors %}
+                                        <div class="span3"><a href="{{ sponsor.external_url }}" class="thumbnail"><img src="{% thumbnail sponsor.website_logo '155x83' %}" alt="{{ sponsor.name }}"/></a></div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                </div>
+        </div>
+     </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#sponsorCarousel').carousel({
+    interval: 5000
+    })
+});
+</script>
+    {{ block.super }}
+{% endblock body_base %}
+
 {% block body %}
+
     {% box "homepage" %}
     &nbsp;
+{% endblock %}
+{% block sidebar %}
+<!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="http://pytennessee.us7.list-manage.com/subscribe/post?u=bc94e190f205529b094a7571b&amp;id=ade6587496" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	<label for="mce-EMAIL">Subscribe to our mailing list</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
 {% endblock %}

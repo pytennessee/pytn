@@ -8,11 +8,12 @@ import dj_database_url
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+#THUMBNAIL_DEBUG = True
 
 # tells Pinax to serve media through the staticfiles app.
-SERVE_MEDIA = DEBUG
+SERVE_MEDIA = False
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -69,7 +70,7 @@ MEDIA_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "media")
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = "/site_media/media/"
+#MEDIA_URL = "/site_media/media/"
 
 # Absolute path to the directory that holds static files like app media.
 # Example: "/home/media/media.lawrence.com/apps/"
@@ -79,12 +80,15 @@ STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
 # URL that handles the static files like app media.
 # Example: "http://media.lawrence.com"
 # STATIC_URL = "/static/"
-AWS_ACCESS_KEY_ID=os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY=os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
 S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = '%s/media' %S3_URL
 STATIC_URL = S3_URL
 
 # Additional directories which hold static files
@@ -230,6 +234,11 @@ SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
 PROPOSAL_FORMS = {
     "tutorial": "pytn.proposals.forms.TutorialProposalForm",
     "talk": "pytn.proposals.forms.TalkProposalForm",
+    "keynote": "pytn.proposals.forms.TalkProposalForm",
+    "30min-talk": "pytn.proposals.forms.TalkProposalForm",
+    "45min-talk": "pytn.proposals.forms.TalkProposalForm",
+    "1hr-tutorial": "pytn.proposals.forms.TutorialProposalForm",
+    "2hr-tutorial": "pytn.proposals.forms.TutorialProposalForm",
 }
 
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'

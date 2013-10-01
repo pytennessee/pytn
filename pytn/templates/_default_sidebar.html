@@ -1,38 +1,10 @@
 {% load sponsorship_tags %}
 {% load thumbnail %}
 {% load boxes_tags %}
-<h4>Dates</h4>
-<table class="table table-striped table-condensed">
-  <tr>
-    <td>10/1</td><td>Call for Proposals</td>
-  </tr>
-  <tr>
-    <td>10/15</td><td>Very Early Bird Tickets ($30)</td>
-  </tr>
-  <tr>
-    <td>11/1</td><td>CFP Closes</td>
-  </tr>
-  <tr>
-    <td>11/15</td><td>Schedule Posted<br>Early Bird Tickets ($40)</td>
-  </tr>
-  <tr>
-    <td>12/1</td><td>Normal Tickets ($50)</td>
-  </tr>
-  <tr>
-    <td>12/15</td><td>Young Coders Registration</td>
-  </tr>
-  <tr>
-    <td>1/5</td><td>Last day for Limited Edition Swag</td>
-  </tr>
-  <tr>
-    <td>2/22</td><td>Conference Opens</td>
-  </tr>
-</table>
 
 {% sponsor_levels as levels %}
 
 <h4>Sponsors</h4>
-
 <div class="sponsor-list">
     {% box "sponsor-top" %}
     {% for level in levels %}

@@ -8,7 +8,7 @@ import dj_database_url
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 #THUMBNAIL_DEBUG = True
 
@@ -234,6 +234,11 @@ SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
 PROPOSAL_FORMS = {
     "tutorial": "pytn.proposals.forms.TutorialProposalForm",
     "talk": "pytn.proposals.forms.TalkProposalForm",
+    "keynote": "pytn.proposals.forms.TalkProposalForm",
+    "30min-talk": "pytn.proposals.forms.TalkProposalForm",
+    "45min-talk": "pytn.proposals.forms.TalkProposalForm",
+    "1hr-tutorial": "pytn.proposals.forms.TutorialProposalForm",
+    "2hr-tutorial": "pytn.proposals.forms.TutorialProposalForm",
 }
 
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'

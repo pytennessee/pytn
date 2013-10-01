@@ -23,8 +23,8 @@
                 </ul>
             </li>
         {% else %}
-            <li><a href="{% url "account_login" %}">{% trans "Log in" %}</a></li>
-            <li><a href="{% url "account_signup" %}">{% trans "Sign up" %}</a></li>
+            <li><a href="{% url "account_login" %}" class="login-btn">{% trans "Log in" %}</a></li>
+            <li><a href="{% url "account_signup" %}" class="signup-btn">{% trans "Sign up" %}</a></li>
         {% endif %}
     </ul>
 </div>

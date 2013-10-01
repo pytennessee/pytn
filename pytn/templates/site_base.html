@@ -9,6 +9,8 @@
 {% block viewport %}{% endblock %}
 
 {% block style_base %}
+    <link rel="shortcut icon" href="{% static 'symposion/img/favicon.ico' %}" type="image/x-icon" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link href="{% static "symposion/css/symposion.css" %}" rel="stylesheet">
     <link href="{% static "css/pytn.css" %}" rel="stylesheet">
     {% block extra_style %}{% endblock %}
@@ -26,9 +28,12 @@
     <a class="brand" href="{% url home %}">{{ SITE_NAME }}</a>
 {% endblock %}
 
-{% block navbar_class %}navbar-fixed-top{% endblock %}
+{% block navbar_class %}navbar-fixed-top hellobar{% endblock %}
 
 {% block nav %}
+    <div id="hello">
+        <strong>Call for Proposals</strong> PyTennessee is now accepting talk proposals. We encourage everyone to submit talks. <a href="#">Learn more</a>
+    </div>
     {% sitetree_menu from "main" include "trunk" template "sitetree/menu_bootstrap.html" %}
 {% endblock %}
 
@@ -52,16 +57,22 @@
         {% endblock %}
 
         {% block footer %}
+        <hr>
             <footer class="footer">
                 <div class="pull-left">
                   <a width="400" class="twitter-timeline" href="https://twitter.com/PyTennessee" data-widget-id="375606235283742720">Tweets by @PyTennessee</a>
                   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
                 <div class="pull-right">
-                    Site powered by <a href="http://eldarion.com/symposion/"><b>Symposion</b></a>.
+                  Site powered by <a href="http://eldarion.com/symposion/"><b>Symposion</b></a>.<br>
                 </div>
             </footer>
         {% endblock %}
+        <div class="row">
+            <div class="span12">
+              <small>"Python" and the Python logos are trademarks or registered trademarks of the Python Software Foundation, used by PyTennessee  with permission from the Foundation</small>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
@@ -75,8 +86,7 @@
 
   ga('create', 'UA-43785205-1', 'pytennessee.org');
   ga('send', 'pageview');
-
-</script>
+    </script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
     <script src="{% static "pinax/js/theme.js" %}"></script>
     {% block extra_script %}{% endblock %}

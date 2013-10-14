@@ -112,6 +112,11 @@ hr {
     margin-bottom: 40px;
 }
 
+#sponsorCarousel > div {
+    display: block;
+    float: left;
+    width: 100%;
+}
 
 .sponsor-btn {
     position: absolute;

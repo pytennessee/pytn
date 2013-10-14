@@ -189,3 +189,44 @@ background: #333333;
 #hello a {
     color: #009025;
 }
+
+
+.dashboard-panel-header > i {
+    display: inline-block;
+    position: relative;
+    top: -4px;
+    opacity: 0.5;
+}
+.dashboard-panel-header h3 {
+    display: inline-block;
+    border-bottom: 1px solid #7792f5;
+}
+
+.dashboard-panel {
+    background: #E6EAEC;
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid #CFD9DD;
+}
+
+
+#register-btn {
+    background: transparent url(../symposion/img/register-btn.png) 0 0 no-repeat;
+    height: 41px;
+    width: 202px;
+    display: block;
+    top: 388px;
+    position: relative;
+    left: 0;
+    text-indent: -9999px;
+    margin: 0 auto;
+
+    -webkit-transition: background-position .3s;
+    -moz-transition: background-position .3s;
+    -o-transition: background-position .3s;
+    -ms-transition: background-position .3s;
+    transition: background-position .3s;
+}
+#register-btn:hover {
+    background-position: 0 -41px;
+}

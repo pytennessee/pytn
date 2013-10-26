@@ -171,6 +171,7 @@ INSTALLED_APPS = [
     "sitetree",
     "account",
     "storages",
+    "south",
 
     # symposion
     "symposion",
@@ -186,6 +187,7 @@ INSTALLED_APPS = [
 
     # project
     "pytn.proposals",
+    "pytn.stickers",
 ]
 
 FIXTURE_DIRS = [

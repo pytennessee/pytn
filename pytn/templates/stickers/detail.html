@@ -10,8 +10,8 @@
 
 {% block body %}
 <h3>{{sticker.title}}</h3>
-<img src="{% thumbnail sticker.upload "400x400" %}" alt="{{ sticker.title }}" /><br>
+<img src="{% thumbnail sticker.upload "400x400" %}" alt="{{ sticker.title }}" /><br />
+{{ sticker.description }}<br />
 <a href="{% url sticker_vote sticker.pk %}" class="btn">Vote</a>
-{{ sticker.description }}
 <a href="{% url sticker_review %}">Return to sticker list</a>
 {% endblock %}

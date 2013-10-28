@@ -16,7 +16,7 @@ class Sticker(models.Model):
         default=datetime.datetime.now,
         editable=False,
     )
-    speaker = models.ForeignKey(User, related_name="stickers")
+    speaker = models.ForeignKey(User, related_name="stickers", null=True)
     upload = models.FileField("file", blank=True, upload_to="sticker_files")
 
     #class Meta:

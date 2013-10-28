@@ -12,7 +12,7 @@ def sticker_submit(request):
     if request.method == "POST":
         form = StickerForm(request.POST)
         if form.is_valid():
-            sticker = form.save(commit=False)
+            sticker = form.save()
             sticker.speaker = request.user
             sticker.save()
             return redirect("sticker_review")

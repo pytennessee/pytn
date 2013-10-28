@@ -15,10 +15,12 @@
 {% if forloop.counter|divisibleby:4 or forloop.counter == 1 %}
 </tr><tr>
 {% endif %}
-<td>
+<td align="center">
   <a href="{% url sticker_detail sticker.pk %}" class="btn">
   <img src="{% thumbnail sticker.upload "200x200" %}" alt="{{ sticker.title }}" />
 </a><br>
+{{ sticker.speaker.name }}
+<br>
 <a href="{% url sticker_vote sticker.pk %}" class="btn">Vote</a>
 Votes: {{ sticker.votes.count }}
 </td>

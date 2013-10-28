@@ -1,7 +1,14 @@
 import datetime
+import uuid
 
 from django.db import models
 from django.contrib.auth.models import User
+
+
+def get_file_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "{filename}.{ext}".format(filename=uuid.uuid4(), ext=ext)
+    return os.path.join('sticker_files', filename)
 
 
 class Sticker(models.Model):
@@ -17,7 +24,7 @@ class Sticker(models.Model):
         editable=False,
     )
     speaker = models.ForeignKey(User, related_name="stickers", null=True)
-    upload = models.FileField("file", blank=True, upload_to="sticker_files")
+    upload = models.FileField("file", blank=True, upload_to=get_file_path)
 
     #class Meta:
         #ordering = ['-votes']

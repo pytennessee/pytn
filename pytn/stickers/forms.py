@@ -5,6 +5,7 @@ from markitup.widgets import MarkItUpWidget
 
 from .models import Sticker
 
+
 class StickerForm(forms.ModelForm):
     class Meta:
         model = Sticker

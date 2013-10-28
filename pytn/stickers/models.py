@@ -17,7 +17,7 @@ class Sticker(models.Model):
         editable=False,
     )
     speaker = models.ForeignKey(User, related_name="stickers", null=True)
-    upload = models.FileField("file", blank=True, upload_to="sticker_files")
+    upload = models.FileField("file", null=True, upload_to="sticker_files")
 
     #class Meta:
         #ordering = ['-votes']

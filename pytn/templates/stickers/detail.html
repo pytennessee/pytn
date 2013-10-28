@@ -13,5 +13,6 @@
 <img src="{% thumbnail sticker.upload "400x400" %}" alt="{{ sticker.title }}" /><br>
 {{ sticker.description }}<br>
 <a href="{% url sticker_vote sticker.pk %}" class="btn">Vote</a>
+Votes: {{ sticker.votes.count }}<br>
 <a href="{% url sticker_review %}">Return to sticker list</a>
 {% endblock %}

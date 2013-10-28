@@ -10,7 +10,7 @@ from .forms import StickerForm
 @login_required
 def sticker_submit(request):
     if request.method == "POST":
-        form = StickerForm(request.POST)
+        form = StickerForm(request.POST, request.FILES)
         if form.is_valid():
             sticker = form.save()
             sticker.speaker = request.user

@@ -16,7 +16,7 @@ from .models import Sticker
 # # 100MB - 104857600
 # # 250MB - 214958080
 # # 500MB - 429916160
-MAX_UPLOAD_SIZE = 5242880
+MAX_UPLOAD_SIZE = 2621440
 
 class StickerForm(forms.ModelForm):
     class Meta:
@@ -32,7 +32,7 @@ class StickerForm(forms.ModelForm):
         }
 
     def clean_upload(self):
-        content = self.cleaned_data['content']
+        content = self.cleaned_data['upload']
         if content:
             if content._size > int(MAX_UPLOAD_SIZE):
                 raise forms.ValidationError(_(u'Please keep filesize under %s. Current filesize %s') % (filesizeformat(settings.MAX_UPLOAD_SIZE), filesizeformat(content._size)))

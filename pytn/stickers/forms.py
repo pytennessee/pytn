@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.admin.widgets import AdminFileWidget
 from django.template.defaultfilters import filesizeformat
 from django.utils.translation import ugettext_lazy as _
-from django.conf import settings
 
 from markitup.widgets import MarkItUpWidget
 
@@ -17,6 +16,7 @@ from .models import Sticker
 # # 250MB - 214958080
 # # 500MB - 429916160
 MAX_UPLOAD_SIZE = 2621440
+
 
 class StickerForm(forms.ModelForm):
     class Meta:
@@ -35,5 +35,5 @@ class StickerForm(forms.ModelForm):
         content = self.cleaned_data['upload']
         if content:
             if content._size > int(MAX_UPLOAD_SIZE):
-                raise forms.ValidationError(_(u'Please keep filesize under %s. Current filesize %s') % (filesizeformat(settings.MAX_UPLOAD_SIZE), filesizeformat(content._size)))
+                raise forms.ValidationError(_(u'Please keep filesize under %s. Current filesize %s') % (filesizeformat(MAX_UPLOAD_SIZE), filesizeformat(content._size)))
             return content

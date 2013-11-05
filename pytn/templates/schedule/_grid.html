@@ -16,7 +16,7 @@
                         {% if slot.content %}
                             <span class="title">
                                 <a href="{% url schedule_presentation_detail slot.content.pk %}">{{ slot.content.title }}</a>
-                            </span>
+                              </span><br>
                             <span class="speaker">
                                 {{ slot.content.speakers|join:", " }}
                             </span>

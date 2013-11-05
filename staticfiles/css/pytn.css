@@ -28,6 +28,28 @@ h2, h4, h6 {
     color: #95a7af;
 }
 
+td.slot.slot-Keynote {
+    background-color: #ffecff;
+}
+
+td.slot.slot-Registration, td.slot.slot-Breakfast, td.slot.slog-Break {
+    background-color: #f6f6ff;
+}
+
+td.slot.slot-Lunch {
+    background-color: #ecffff;
+}
+
+td.slot {
+    background-color: #ffffda;
+}
+
+table.calendar td {
+    text-align: center;
+}
+table.calendar {
+    font-size: 12px;
+}
 
 hr {
     border-top: 2px solid #95a7af;

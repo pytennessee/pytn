@@ -32,7 +32,6 @@ def length_in_minutes(slot):
         (end_datetime(slot) - start_datetime(slot)).total_seconds() / 60)
 
 
-@login_required
 def schedule_json(request):
     everything = bool(request.GET.get('everything'))
     slots = Slot.objects.all().order_by("start")
@@ -66,9 +65,9 @@ def schedule_json(request):
         elif everything:
             slot_data = {
                 "room": ", ".join(room["name"] for room in slot.rooms.values()),
-                "start": slot.start_datetime.isoformat(),
-                "end": slot.end_datetime.isoformat(),
-                "duration": slot.length_in_minutes,
+                "start": start_datetime(slot).isoformat(),
+                "end": end_datetime(slot).isoformat(),
+                "duration": length_in_minutes(slot),
                 "kind": slot.kind.label,
                 "title": slot.content_override.raw,
             }

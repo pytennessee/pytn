@@ -188,6 +188,7 @@ INSTALLED_APPS = [
     # project
     "pytn.proposals",
     "pytn.stickers",
+    "pytn.api",
 ]
 
 FIXTURE_DIRS = [

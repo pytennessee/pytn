@@ -29,7 +29,7 @@ def end_datetime(slot):
 
 def length_in_minutes(slot):
     return int(
-        (slot.end_datetime - slot.start_datetime).total_seconds() / 60)
+        (end_datetime(slot) - start_datetime(slot)).total_seconds() / 60)
 
 
 @login_required

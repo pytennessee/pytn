@@ -33,6 +33,7 @@ urlpatterns = patterns("",
     url(r"^schedule/", include("symposion.schedule.urls")),
     url(r"^markitup/", include("markitup.urls")),
     url(r"^stickers/", include("pytn.stickers.urls")),
+    url(r"^api/", include("pytn.api.urls")),
 
     url(r"^", include("symposion.cms.urls")),
 )

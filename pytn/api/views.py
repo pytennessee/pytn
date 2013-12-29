@@ -36,7 +36,7 @@ def schedule_json(request):
     everything = bool(request.GET.get('everything'))
     slots = Slot.objects.all().order_by("start")
 
-    protocol = request.META['X_FORWARDED_PROTO']
+    protocol = request.META['HTTP_X_FORWARDED_PROTO']
 
     data = []
     for slot in slots:

@@ -35,6 +35,9 @@ def length_in_minutes(slot):
 def schedule_json(request):
     everything = bool(request.GET.get('everything'))
     slots = Slot.objects.all().order_by("start")
+
+    protocol = request.META['HTTP_X_FORWARDED_PROTO']
+
     data = []
     for slot in slots:
         if slot.content:
@@ -46,7 +49,6 @@ def schedule_json(request):
                 "duration": length_in_minutes(slot),
                 "authors": [s.name for s in slot.content.speakers()],
                 "released": slot.content.proposal.recording_release,
-                # You may wish to change this...
                 "license": "All Rights Reserved",
                 "contact":
                 [s.email for s in slot.content.speakers()]
@@ -55,7 +57,8 @@ def schedule_json(request):
                 "abstract": slot.content.abstract.raw,
                 "description": slot.content.description.raw,
                 "conf_key": slot.content.pk,
-                "conf_url": "https://%s%s" % (
+                "conf_url": "%s://%s%s" % (
+                    protocol,
                     Site.objects.get_current().domain,
                     reverse("schedule_presentation_detail", args=[slot.content.pk])
                 ),

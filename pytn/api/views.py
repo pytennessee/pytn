@@ -35,6 +35,18 @@ def length_in_minutes(slot):
 def schedule_json(request):
     everything = bool(request.GET.get('everything'))
     slots = Slot.objects.all().order_by("start")
+    
+    # request.META['SERVER_PROTOCOL'] # 'HTTP/1.1'
+    # protocol = request.META['SERVER_PROTOCOL'].split('/')[0]
+    
+    # Heroku will add a header to the request to let you know if it's originating from HTTP or HTTPs.
+    # https://devcenter.heroku.com/articles/http-routing#heroku-headers
+    # X-Forwarded-Proto: the originating protocol of the HTTP request (example: https)
+    
+    # https://discussion.heroku.com/t/gunicorn-not-setting-wsgi-url-scheme-properly/70
+    
+    protocol = request.META['wsgi.url_scheme'] # http
+
     data = []
     for slot in slots:
         if slot.content:
@@ -55,7 +67,8 @@ def schedule_json(request):
                 "abstract": slot.content.abstract.raw,
                 "description": slot.content.description.raw,
                 "conf_key": slot.content.pk,
-                "conf_url": "https://%s%s" % (
+                "conf_url": "%s://%s%s" % (
+                    protocol,
                     Site.objects.get_current().domain,
                     reverse("schedule_presentation_detail", args=[slot.content.pk])
                 ),

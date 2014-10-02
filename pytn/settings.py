@@ -22,6 +22,7 @@ INTERNAL_IPS = [
 ADMINS = [
     # ("Your Name", "your_email@domain.com"),
 ]
+DEFAULT_FROM_EMAIL = 'postmaster@pytennessee.org'
 
 MANAGERS = ADMINS
 
@@ -249,7 +250,7 @@ PROPOSAL_FORMS = {
 }
 
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-MAILGUN_ACCESS_KEY = 'key-7c3-my73xu8fvj-29r22039vv799a8-7'
+MAILGUN_ACCESS_KEY = os.environ['MAILGUN_ACCESS_KEY']
 MAILGUN_SERVER_NAME = 'pytennessee.org'
 
 # local_settings.py can be used to override environment-specific settings

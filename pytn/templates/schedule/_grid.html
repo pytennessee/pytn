@@ -28,9 +28,6 @@
                         {% endif %}
                     </td>
                 {% endfor %}
-                {% if forloop.last %}
-                    <td colspan="{{ timetable.rooms|length }}">Sprints!</td>
-                {% endif %}
             </tr>
         {% endfor %}
     </tbody>

@@ -1,4 +1,5 @@
 --allow-all-external
+--allow-all-unverified
 
 Django==1.4.5
 Jinja2==2.7.3

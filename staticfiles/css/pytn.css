@@ -123,11 +123,26 @@ hr {
 }
 
 
+#hero .logo {
+  width: 160px;
+  height: 159px;
+  margin: 0 auto;
+  display: block;
+}
+
 #hero {
-    background: #2b373e url(../symposion/img/pytnheader.jpg) top center;
-    min-height: 500px;
-    width: 100%;
-    margin-bottom: 40px;
+  width: 100%;
+  margin-bottom: 40px;
+  background-color: #fff;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+#hero p {
+  text-align: center;
+  font-size: 16px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 #sponsorCarousel {
@@ -238,22 +253,24 @@ background: #333333;
 
 
 #register-btn {
-    background: transparent url(../symposion/img/register-btn.png) 0 0 no-repeat;
-    height: 41px;
-    width: 202px;
+    background: #4a4240 url(../symposion/img/register-btn.png) 10px 10px no-repeat;
+    width: 130px;
+    margin: 15px auto;
     display: block;
-    top: 388px;
-    position: relative;
-    left: 0;
-    text-indent: -9999px;
-    margin: 0 auto;
+    padding: 10px;
+    color: #fff;
+    line-height: 25px;
+    font-size: 16px;
+    text-align: right;
+    text-transform: capitalize;
 
-    -webkit-transition: background-position .3s;
-    -moz-transition: background-position .3s;
-    -o-transition: background-position .3s;
-    -ms-transition: background-position .3s;
-    transition: background-position .3s;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -o-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    transition: background-color .3s;
 }
 #register-btn:hover {
-    background-position: 0 -41px;
+    background-color: #2c2726;
+    text-decoration: none;
 }

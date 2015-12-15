@@ -12,7 +12,7 @@
             <tr>
                 <td class="time">{{ row.time|date:"h:iA" }}</td>
                 {% for slot in row.slots %}
-                    {% if slot.kind.label == "2hr" %}
+                    {% if slot.kind.label == u'2hr' %}
                       <td class="slot slot-{{ slot.kind.label }}" colspan="{{ slot.colspan }}" rowspan="{{ slot.rowspan|add:"-1" }}">
                     {% else %}
                       <td class="slot slot-{{ slot.kind.label }}" colspan="{{ slot.colspan }}" rowspan="{{ slot.rowspan }}">

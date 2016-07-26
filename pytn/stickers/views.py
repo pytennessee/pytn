@@ -50,3 +50,6 @@ def sticker_review(request):
 
 def lets_encrypt(request):
     return HttpResponse("qokKA17AkF2wYWV_Rq6BBDLDEM2mRNu5oCE27caPjko.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o")
+
+def lets_encrypt2(request):
+    return HttpResponse("1YdmQxzzmvPfBBp-pJlDMQMufuSFC6fJ11NwC8yPPRU.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o")

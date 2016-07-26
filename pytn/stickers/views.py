@@ -1,7 +1,7 @@
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
-
-from django.contrib.auth.decorators import login_required
 
 from .models import Sticker, StickerVote
 from .forms import StickerForm
@@ -49,4 +49,4 @@ def sticker_review(request):
     }, context_instance=RequestContext(request))
 
 def lets_encrypt(request):
-    return "4D9n2flTyjnC14-lEclFWugJJlbq0vbmWftJ4mJTYOU.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o"
+    return HttpResponse("4D9n2flTyjnC14-lEclFWugJJlbq0vbmWftJ4mJTYOU.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o")

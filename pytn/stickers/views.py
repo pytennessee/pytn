@@ -47,3 +47,6 @@ def sticker_review(request):
     return render_to_response("stickers/review.html", {
         "stickers": stickers,
     }, context_instance=RequestContext(request))
+
+def lets_encrypt(request):
+    return "4D9n2flTyjnC14-lEclFWugJJlbq0vbmWftJ4mJTYOU.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o"

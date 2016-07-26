@@ -49,4 +49,4 @@ def sticker_review(request):
     }, context_instance=RequestContext(request))
 
 def lets_encrypt(request):
-    return HttpResponse("SkeoYBzTmdZkbuHnTYYbOeB888TlVRx9_qVzDnjmyng.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o")
+    return HttpResponse("qokKA17AkF2wYWV_Rq6BBDLDEM2mRNu5oCE27caPjko.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o")

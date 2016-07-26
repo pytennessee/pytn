@@ -8,6 +8,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 import symposion.views
+import stickers.views
 
 # from pinax.apps.account.openid_consumer import PinaxConsumer
 
@@ -17,6 +18,7 @@ urlpatterns = patterns("",
     url(r"^$", direct_to_template, {
         "template": "homepage.html",
     }, name="home"),
+    url("^.well-known/acme-challenge/4D9n2flTyjnC14-lEclFWugJJlbq0vbmWftJ4mJTYOU", stickers.views.lets_encrypt, name="lets_encrypt"),
     url(r"^admin/", include(admin.site.urls)),
 
     url(r"^account/signup/$", symposion.views.SignupView.as_view(), name="account_signup"),

@@ -18,7 +18,7 @@ urlpatterns = patterns("",
     url(r"^$", direct_to_template, {
         "template": "homepage.html",
     }, name="home"),
-    url("^.well-known/acme-challenge/g7PXzzy82-9oreI3kQtbdsgSvQz4lBFS88nGvZAd8Iw", stickers.views.lets_encrypt, name="lets_encrypt"),
+    url("^.well-known/acme-challenge/cXmiSv4yzjJNmENOf1r6RSv1yzpdrEaZ1sN4SfNNRF0", stickers.views.lets_encrypt, name="lets_encrypt"),
     url(r"^admin/", include(admin.site.urls)),
 
     url(r"^account/signup/$", symposion.views.SignupView.as_view(), name="account_signup"),

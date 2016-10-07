@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect, get_object_or_404
@@ -5,6 +7,9 @@ from django.template import RequestContext
 
 from .models import Sticker, StickerVote
 from .forms import StickerForm
+
+
+logger = logging.getLogger(__name__)
 
 
 @login_required
@@ -60,4 +65,5 @@ def find_key(token):
 
 def lets_encrypt(request, token):
     key = find_key(token)
-    return HttpResponse(key)
+    logger.error('Key %s', key)
+    return HttpResponse(str(key))

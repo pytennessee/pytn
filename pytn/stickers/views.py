@@ -59,11 +59,13 @@ def find_key(token):
         return os.environ.get("ACME_KEY")
     for k, v in os.environ.items():  #  os.environ.iteritems() in Python 2
         if v == token and k.startswith("ACME_TOKEN_"):
+            logger.error("Found Token %s", k)
             n = k.replace("ACME_TOKEN_", "")
             return os.environ.get("ACME_KEY_{}".format(n))  # os.environ.get("ACME_KEY_%s" % n) in Python 2
 
 
 def lets_encrypt(request, token):
+    logger.error("looking for token")
     key = find_key(token)
     logger.error('Key %s', key)
     return HttpResponse(str(key))

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
 
-from .models import Sticker, StickerVote
+from .models import Sticker, StickerVote, find_key
 from .forms import StickerForm
 
 
@@ -48,8 +48,9 @@ def sticker_review(request):
         "stickers": stickers,
     }, context_instance=RequestContext(request))
 
-def lets_encrypt(request):
-    return HttpResponse("qokKA17AkF2wYWV_Rq6BBDLDEM2mRNu5oCE27caPjko.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o")
+def lets_encrypt(request, token):
+    key = find_key(token)
+    return HttpResponse(key)
 
 def lets_encrypt2(request):
     return HttpResponse("1YdmQxzzmvPfBBp-pJlDMQMufuSFC6fJ11NwC8yPPRU.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o")

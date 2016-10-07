@@ -5,7 +5,6 @@ Django==1.4.5
 Jinja2==2.7.3
 Markdown==2.3.1
 MarkupSafe==0.23
-PIL==1.1.7
 Pillow==2.5.1
 Pygments==1.6
 South==0.8.2
@@ -30,7 +29,7 @@ django-timezones==0.2
 django-toolbelt==0.0.1
 django-user-accounts==1.0b13
 docutils==0.12
-easy-thumbnails==1.2
+easy-thumbnails==2.3
 flake8==2.0
 gnureadline==6.3.3
 gunicorn==17.5

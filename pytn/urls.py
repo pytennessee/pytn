@@ -18,8 +18,7 @@ urlpatterns = patterns("",
     url(r"^$", direct_to_template, {
         "template": "homepage.html",
     }, name="home"),
-    url("^.well-known/acme-challenge/qokKA17AkF2wYWV_Rq6BBDLDEM2mRNu5oCE27caPjko", stickers.views.lets_encrypt, name="lets_encrypt"),
-    url("^.well-known/acme-challenge/1YdmQxzzmvPfBBp-pJlDMQMufuSFC6fJ11NwC8yPPRU", stickers.views.lets_encrypt2, name="lets_encrypt2"),
+    url("^.well-known/acme-challenge/(?P<token>[\w-]+)", stickers.views.lets_encrypt, name="lets_encrypt"),
     url(r"^admin/", include(admin.site.urls)),
 
     url(r"^account/signup/$", symposion.views.SignupView.as_view(), name="account_signup"),

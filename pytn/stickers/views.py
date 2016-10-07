@@ -65,7 +65,7 @@ def find_key(token):
 
 
 def lets_encrypt(request, token):
-    logger.error("looking for token")
-    key = find_key(token)
-    logger.error('Key %s', key)
+#    logger.error("looking for token")
+#    key = find_key(token)
+#    logger.error('Key %s', key)
     return HttpResponse(str(key))

@@ -1,5 +1,3 @@
-import logging
-
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect, get_object_or_404
@@ -7,9 +5,6 @@ from django.template import RequestContext
 
 from .models import Sticker, StickerVote
 from .forms import StickerForm
-
-
-logger = logging.getLogger(__name__)
 
 
 @login_required
@@ -53,19 +48,8 @@ def sticker_review(request):
         "stickers": stickers,
     }, context_instance=RequestContext(request))
 
+def lets_encrypt(request):
+    return HttpResponse("qokKA17AkF2wYWV_Rq6BBDLDEM2mRNu5oCE27caPjko.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o")
 
-def find_key(token):
-    if token == os.environ.get("ACME_TOKEN"):
-        return os.environ.get("ACME_KEY")
-    for k, v in os.environ.items():  #  os.environ.iteritems() in Python 2
-        if v == token and k.startswith("ACME_TOKEN_"):
-            logger.error("Found Token %s", k)
-            n = k.replace("ACME_TOKEN_", "")
-            return os.environ.get("ACME_KEY_{}".format(n))  # os.environ.get("ACME_KEY_%s" % n) in Python 2
-
-
-def lets_encrypt(request, token):
-#    logger.error("looking for token")
-#    key = find_key(token)
-#    logger.error('Key %s', key)
-    return HttpResponse(str(key))
+def lets_encrypt2(request):
+    return HttpResponse("1YdmQxzzmvPfBBp-pJlDMQMufuSFC6fJ11NwC8yPPRU.b6m5qKJTFMPZgBdDHWv1cU_zUprSrr15yWJ_CKofr0o")

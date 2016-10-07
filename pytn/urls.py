@@ -15,10 +15,10 @@ import stickers.views
 WIKI_SLUG = r"(([\w-]{2,})(/[\w-]{2,})*)"
 
 urlpatterns = patterns("",
+    url("^.well-known/acme-challenge/(?P<token>[\w-]+)", stickers.views.lets_encrypt, name="lets_encrypt"),
     url(r"^$", direct_to_template, {
         "template": "homepage.html",
     }, name="home"),
-    url("^.well-known/acme-challenge/(?P<token>[\w-]+)", stickers.views.lets_encrypt, name="lets_encrypt"),
     url(r"^admin/", include(admin.site.urls)),
 
     url(r"^account/signup/$", symposion.views.SignupView.as_view(), name="account_signup"),

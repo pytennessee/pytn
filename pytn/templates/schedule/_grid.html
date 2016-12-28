@@ -12,11 +12,7 @@
             <tr>
                 <td class="time">{{ row.time|date:"h:iA" }}</td>
                 {% for slot in row.slots %}
-                    {% if slot.kind.id == 8 %}
-                      <td class="slot slot-{{ slot.kind.label }}" colspan="{{ slot.colspan }}" rowspan="2">
-                    {% else %}
                       <td class="slot slot-{{ slot.kind.label }}" colspan="{{ slot.colspan }}" rowspan="{{ slot.rowspan }}">
-                    {% endif %}
                         {% if slot.content %}
                             <span class="title">
                                 <a href="{% url schedule_presentation_detail slot.content.pk %}">{{ slot.content.title }}</a>

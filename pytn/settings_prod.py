@@ -8,9 +8,9 @@ import dj_database_url
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
-# THUMBNAIL_DEBUG = True
+#THUMBNAIL_DEBUG = True
 
 # tells Pinax to serve media through the staticfiles app.
 SERVE_MEDIA = False
@@ -28,23 +28,25 @@ MANAGERS = ADMINS
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",  # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
-        "NAME": "pytndb",  # Or path to database file if using sqlite3.
-        "USER": "",  # Not used with sqlite3.
-        "PASSWORD": "",  # Not used with sqlite3.
-        "HOST": "",  # Set to empty string for localhost. Not used with sqlite3.
-        "PORT": "",  # Set to empty string for default. Not used with sqlite3.
+        "ENGINE": "django.db.backends.postgresql_psycopg2", # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
+        "NAME": "pytndb",                       # Or path to database file if using sqlite3.
+        "USER": "",                             # Not used with sqlite3.
+        "PASSWORD": "",                         # Not used with sqlite3.
+        "HOST": "",                             # Set to empty string for localhost. Not used with sqlite3.
+        "PORT": "",                             # Set to empty string for default. Not used with sqlite3.
     }
 }
 
 # Parse database configuration from $DATABASE_URL
 # import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config()
 
-PREPEND_WWW = False
-SSLIFY_DISABLE = True
-
-# Allow all host headers
+PREPEND_WWW = True
+#
+# # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#
+# # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
@@ -71,12 +73,12 @@ MEDIA_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "media")
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-# MEDIA_URL = "/site_media/media/"
+#MEDIA_URL = "/site_media/media/"
 
 # Absolute path to the directory that holds static files like app media.
 # Example: "/home/media/media.lawrence.com/apps/"
 STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
-# STATIC_ROOT = 'staticfiles'
+#STATIC_ROOT = 'staticfiles'
 
 # URL that handles the static files like app media.
 # Example: "http://media.lawrence.com"
@@ -119,6 +121,7 @@ TEMPLATE_LOADERS = [
 
 MIDDLEWARE_CLASSES = [
     "django.middleware.common.CommonMiddleware",
+    "sslify.middleware.SSLifyMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -256,7 +259,3 @@ try:
     from local_settings import *
 except ImportError:
     pass
-
-SOUTH_MIGRATION_MODULES = {
-    'easy_thumbnails': 'easy_thumbnails.south_migrations',
-}

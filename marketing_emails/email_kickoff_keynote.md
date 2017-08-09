@@ -1,6 +1,6 @@
 *Fellow Pythonistas!*
 
-It is my honor to announce that PyTN 2018 is on its way.  The 2018 event will take place on February 10th and 11th at the Nashville Law School.  The organizers are working on estting up the 2018 event to meet the level of excellence former chairman Jason Mysers set.
+It is my honor to announce that PyTN 2018 is on its way.  The 2018 event will take place on February 10th and 11th at the Nashville Law School.  The organizers are working on setting up the 2018 event to meet the level of excellence former chairman Jason Myers set.
 
 We can first announce the keynote speakers who are sure to give you reason enough to put PyTN 2018 on your calendar:
 
@@ -29,7 +29,7 @@ Intellovations has been the first sponsor of PyTN for all 5 years we have had th
 We will be having young coders again this year. Tickets will be available December 15th at noon and they normally go fast.  The program will be lead by Brad Montgomery, a masterful python teacher, again this year. This free program is open to ages 12-17, and all attendees will receive take home books and a Chromebook.
 
 ## Personal Note
-I add the #blame_chad because I am sure that I will miss something or communication could be better.  In light of this, I want to say thank you to those who have made the Python community so friendly and a place to turn to learn.  Special thanks to Jason Myers for his spirit that he poured into this event.  I jokingly add #blame_chad because of my imposter syndrome tells me that someone else could do this better.  Despite this, it is my hope to give back a bit after the Python community has given me a lot.
+I add the #blame_chad because I am sure that I will miss something or communication could be better.  In light of this, I want to say thank you to those who have made the Python community so friendly and a place to turn to learn.  It allows me to step out and try to give back.  Special thanks to Jason Myers for his spirit that he poured into this event.  I jokingly add #blame_chad because of my imposter syndrome tells me that someone else could do this better.  Despite this, it is my hope to give back a bit after the Python community has given me a lot.
 
 Thank you,
 

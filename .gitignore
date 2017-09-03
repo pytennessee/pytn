@@ -37,3 +37,5 @@ nosetests.xml
 
 .idea/
 .env
+
+.pre-commit-config.yaml

@@ -38,3 +38,5 @@ nosetests.xml
 .idea/
 *.iml
 .env
+
+.pre-commit-config.yaml

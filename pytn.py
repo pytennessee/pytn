@@ -16,10 +16,17 @@ app.config.update(
 )
 
 @app.before_request
-def enforce_ssl():
-    debug_enabled = current_app.debug
-    if not (debug_enabled or request.is_secure):
-        return redirect(request.url.replace("http://", "https://"))
+def enforce_ssl_and_www():
+    if not current_app.debug:
+        host = request.host
+        if not host.startswith('www.'):
+            host = 'www.%s' % host
+
+        return redirect('{protocol}{host}{path}'.format(
+            protocol='https://',
+            host=host,
+            path=request.path
+        ))
 
 
 @app.route('/', methods=['GET'])

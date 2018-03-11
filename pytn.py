@@ -11,8 +11,8 @@ app = Flask(__name__)
 cache = SimpleCache()
 
 app.config.update(
-    DEBUG=os.environ.get('DEBUG', False),
-    TESTING=os.environ.get('TESTING', False)
+    DEBUG=os.environ.get('APP_ENV', 'dev').lower() == 'dev',
+    TESTING=os.environ.get('APP_ENV', 'dev').lower() == 'dev'
 )
 
 @app.before_request

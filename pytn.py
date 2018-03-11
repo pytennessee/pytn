@@ -20,7 +20,7 @@ def enforce_ssl_and_www():
     if not current_app.debug:
         host = request.host
         needs_www = not host.startswith('www.')
-        needs_ssl = not current_app.is_secure
+        needs_ssl = not request.is_secure
 
         if needs_www:
             host = 'www.%s' % host

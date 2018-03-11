@@ -1,1 +1,1 @@
-web: gunicorn pytn:app
+web: gunicorn pytn:app --log-file=-

@@ -40,3 +40,12 @@ def index():
         page = render_template('index.html')
         cache.set('index-page', page, timeout=ONE_HOUR)
     return page
+
+@app.route('/sponsorship', methods=['GET'], strict_slashes=False)
+def sponsorship():
+    page = cache.get('sponsorship')
+    if page is None:
+        page = render_template('sponsorship.html')
+        cache.set('sponsorship', page, timeout=ONE_HOUR)
+    return page
+
